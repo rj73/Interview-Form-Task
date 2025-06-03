@@ -1,6 +1,6 @@
 const mongoose= require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/form_task")
+mongoose.connect("mongodb+srv://rajesh:rajesh@cluster0.iktn2.mongodb.net/form_task")
 .then((req,res)=>{
     console.log("Database Server started");
 }).catch((req,res)=>{
