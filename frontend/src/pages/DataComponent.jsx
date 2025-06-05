@@ -13,10 +13,12 @@ export function DataComponent(){
             userid: "683d74ca55427ba64e3a7690"
         }}).then((resp)=>{
             setData(d=> d=resp.data);
+            console.log(resp)
         })
     }, [])
     return (
         <div className="flex justify-center items-center h-screen bg-blue-200">
+          <div>
              <div className="flex justify-center m-10">
     <button onClick={()=>{
         navigate('/fields')
@@ -28,12 +30,13 @@ export function DataComponent(){
         navigate('/data')
     }}  type="button" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Information</button>
     </div>
-            <div>
+            <div className="ml-30">
           {data &&
             Object.entries(data).map(([key, value], index) => (
               <DataFieldComponent key={index} label={key} content={value} />
             ))
           }
+          </div>
           </div>
         </div>
       );
