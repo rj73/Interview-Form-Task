@@ -1,6 +1,9 @@
 const mongoose= require("mongoose");
 
-mongoose.connect("mongodb+srv://rajesh:rajesh@cluster0.iktn2.mongodb.net/form_task")
+// Use environment variable for connection string or fall back to the original for backward compatibility
+const connectionString = process.env.MONGODB_CONNECTION_STRING || "mongodb+srv://rajesh:rajesh@cluster0.iktn2.mongodb.net/form_task";
+
+mongoose.connect(connectionString)
 .then((req,res)=>{
     console.log("Database Server started");
 }).catch((req,res)=>{

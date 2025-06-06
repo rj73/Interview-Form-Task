@@ -1,3 +1,12 @@
+// Load environment variables from .env file if present
+if (process.env.NODE_ENV !== 'production') {
+  try {
+    require('dotenv').config();
+  } catch (err) {
+    console.log('dotenv package not available, skipping .env loading');
+  }
+}
+
 const express= require('express');
 const { formRouter } = require('./routes/form');
 const cors= require('cors');
